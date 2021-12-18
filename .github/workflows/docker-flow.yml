@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker Login
+      with: 
+         username: $ {{ secrets.DOCK_USERNAME }}
+         password: $ {{ secrets.DOCK_PWD }}
+    - name: Build the Docker image
+      
+      run: docker build . --file Dockerfile --tag jpdocker12/nodejstrial
