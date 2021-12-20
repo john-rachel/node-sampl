@@ -14,7 +14,8 @@ jobs:
     - name: check out code
       uses: actions/checkout@v2
       with:
-         repository: ' '
+         fetch-depth: 2
+    - run: git checkout HEAD^
           
     - name: Build & push Docker image
       uses: jpdocker12/node-sampl@latest
@@ -24,4 +25,5 @@ jobs:
          registry: docker.io
          username: $ {{ secrets.DOCK_USERNAME }}
          password: $ {{ secrets.DOCK_PWD }}
+    
     
