@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@latest
     - name: checkout code
     
-    - uses: jpdocker12/node-sampl@latest
+      uses: jpdocker12/node-sampl@latest
     - name: Build & push Docker image
       with: 
          image: jpdocker12/node-sampl
