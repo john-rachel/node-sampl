@@ -27,6 +27,7 @@ jobs:
     - name: Build and push
       run: |
        docker build -t jpdocker12/nodejstrial:latest .
+       docker push jpdocker12/nodejstrial:latest
       
         
     
