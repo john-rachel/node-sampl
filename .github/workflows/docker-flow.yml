@@ -28,6 +28,22 @@ jobs:
       run: |
        docker build -t jpdocker12/nodejstrial:latest .
        docker push jpdocker12/nodejstrial:latest
+       minikube start
+       kubectl apply -f - <<EOF
+       apiVersion: v1
+       kind: Pod
+       metadata:
+         name: nj-pod
+         labels:
+           component: web
+       spec:
+         containers:
+           - name: client
+             image: jpdocker12/nodejstrial:latest
+             ports:
+              -  container port: 3000
+       EOF
+       kubectl get pods
       
         
     
