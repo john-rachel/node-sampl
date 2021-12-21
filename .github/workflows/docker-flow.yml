@@ -26,7 +26,7 @@ jobs:
      
     - name: Build and push
       run: |
-       docker build --tag jpdocker12/node-sampl@latest
+       docker build -it jpdocker12/nodejstrial@latest
       
         
     
